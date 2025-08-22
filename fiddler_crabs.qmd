@@ -1,0 +1,12 @@
+---
+title: "Day 10 Github Practice"
+format: html
+editor: visual
+---
+
+```{r}
+install.packages("lterdatasampler")
+library(lterdatasampler)
+crabs <- pie_crab
+```
+

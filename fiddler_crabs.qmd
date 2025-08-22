@@ -2,6 +2,8 @@
 title: "Day 10 Github Practice"
 format: html
 editor: visual
+execute: 
+  echo: false
 ---
 
 ```{r}
@@ -13,6 +15,14 @@ crabs <- pie_crab
 
 Creating carapace plot
 ```{r}
+#| fig-cap: "this is my caption"
 ggplot(data = crabs, aes(x = size, y = latitude))+
   geom_point()
 ```
+
+```{r}
+crabs %>% 
+  group_by(site) %>% 
+  summarize(mean = round(mean(size), 2), sd = sd(size), sample_size = n())
+```
+

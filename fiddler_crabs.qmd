@@ -5,8 +5,14 @@ editor: visual
 ---
 
 ```{r}
-install.packages("lterdatasampler")
+#install.packages("lterdatasampler")
+library(tidyverse)
 library(lterdatasampler)
 crabs <- pie_crab
 ```
 
+Creating carapace plot
+```{r}
+ggplot(data = crabs, aes(x = size, y = latitude))+
+  geom_point()
+```

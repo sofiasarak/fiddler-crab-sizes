@@ -10,6 +10,7 @@ execute:
 #install.packages("lterdatasampler")
 library(tidyverse)
 library(lterdatasampler)
+library(kableExtra)
 crabs <- pie_crab
 ```
 
@@ -21,8 +22,19 @@ ggplot(data = crabs, aes(x = size, y = latitude))+
 ```
 
 ```{r}
-crabs %>% 
+crabs_table <- crabs %>% 
   group_by(site) %>% 
   summarize(mean = round(mean(size), 2), sd = sd(size), sample_size = n())
+
+crabs_table
+```
+
+```{r}
+crabs_table |> 
+  kable(col.names = c("Site",
+                      "Mean (mm)",
+                      "Standard deviation (mm)",
+                      "Sample size")) |> 
+  kable_classic()
 ```
 
